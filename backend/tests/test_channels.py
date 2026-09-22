@@ -3608,7 +3608,7 @@ class TestResolveRunParamsUserId:
     def test_github_channel_gets_raised_recursion_limit(self):
         """Autonomous GitHub coding runs (clone → edit → test → push → PR) need
         more super-steps than an interactive chat turn. The default
-        ``recursion_limit`` of 100 is raised for the github channel only."""
+        ``recursion_limit`` of 300 is raised for the github channel only."""
         manager = self._manager()
 
         gh_msg = InboundMessage(channel_name="github", chat_id="zhfeng/llm-gateway", user_id="zhfeng", text="hi")
@@ -3618,7 +3618,7 @@ class TestResolveRunParamsUserId:
         # Interactive channels keep the default ceiling.
         slack_msg = InboundMessage(channel_name="slack", chat_id="C1", user_id="u", text="hi")
         _, slack_config, _ = manager._resolve_run_params(slack_msg, "thread-1")
-        assert slack_config["recursion_limit"] == 100
+        assert slack_config["recursion_limit"] == 300
 
     def test_github_channel_recursion_limit_respects_higher_override(self):
         """An explicit higher recursion_limit in channel/user config must not be

@@ -504,7 +504,7 @@ def resolve_agent_factory(assistant_id: str | None):
 # call), enabling runaway API cost / DoS. ``_DEFAULT_RECURSION_LIMIT`` is the
 # server default when the client sends nothing; the hard ceiling any client
 # value is clamped to is configurable via ``AppConfig.max_recursion_limit``.
-_DEFAULT_RECURSION_LIMIT = 100
+_DEFAULT_RECURSION_LIMIT = 300
 _DEFAULT_MAX_RECURSION_LIMIT = 1000
 
 

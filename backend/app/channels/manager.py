@@ -60,8 +60,8 @@ CUSTOM_AGENT_NAME_PATTERN = re.compile(r"^[A-Za-z0-9-]+$")
 # This is independent of subagent depth: a `task()` dispatch runs the whole
 # subagent inside ONE lead tools-node step, and subagents enforce their own
 # limit via `subagents.max_turns` (see SubagentExecutor). Do not conflate this
-# 100 with the general-purpose subagent's max_turns.
-DEFAULT_RUN_CONFIG: dict[str, Any] = {"recursion_limit": 100}
+# 300 with the general-purpose subagent's max_turns.
+DEFAULT_RUN_CONFIG: dict[str, Any] = {"recursion_limit": 300}
 DEFAULT_RUN_CONTEXT: dict[str, Any] = {
     "thinking_enabled": True,
     "is_plan_mode": False,
